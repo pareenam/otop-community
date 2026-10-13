@@ -7,7 +7,7 @@ async function loadProducts() {
   container.innerHTML = "<p style='text-align:center;'>กำลังโหลด...</p>";
 
   try {
-    const response = await fetch("http://localhost:3000/api/products");
+    const response = await fetch("/api/products");
     const products = await response.json();
 
     if (products.length === 0) {

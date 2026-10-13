@@ -92,7 +92,7 @@ function attachDeleteHandlers() {
 
       try {
         const response = await fetch(
-          `http://localhost:3000/api/products/${id}`,
+          `/api/products/${id}`,
           {
             method: "DELETE"
           }
@@ -148,7 +148,7 @@ if (fileInput.files[0]) {
 }
 
     try {
-      const response = await fetch( "http://localhost:3000/api/products", {
+      const response = await fetch( "/api/products", {
           method: "POST",
           body: formData
         });

@@ -4,7 +4,7 @@ async function loadProducts() {
     container.innerHTML = "<p>กำลังโหลด...</p>";
 
     try {
-        const response = await fetch("http://localhost:3000/api/products");
+        const response = await fetch("/api/products");
         const products = await response.json();
 
         console.log("สินค้า", products);
@@ -16,7 +16,7 @@ async function loadProducts() {
             card.className = "card";
 
             card.innerHTML = `
-                <img src="http://localhost:3000/assets/product-${product.id}.svg" alt="${product.name}">
+                <img src="/assets/product-${product.id}.svg" alt="${product.name}">
                 <h3>${product.name}</h3>
                 <p>ผลไม้สดจากสวน</p>
                 <span class="price">฿ ${product.price}</span>

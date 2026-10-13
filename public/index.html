@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ของดีเมืองจันทร์</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+   <nav class="navbar">
+    <div class="logo">
+        <h2>ของดีเมืองจันทร์</h2>
+    </div>
+    <ul class="menu">
+        <li><a href="#">หน้าแรก</a></li>
+        <li><a href="#">สินค้า</a></li>
+        <li><a href="#">ติดต่อ</a></li>
+    </ul>
+</nav>
+
+  
+    <section class="hero">
+        <div class="hero-image">
+            <img src="logo-Photoroom.png" alt="Fruit">
+        </div>
+
+        <div class="hero-text">
+        
+            <p>รวมของดีจากชุมชน สู่คนรุ่นใหม่</p>
+            <button>ดูสินค้า</button>
+        </div>
+
+        
+    </section>
+<!-- เพิ่มก่อน card grid -->
+<section class="add-form-section">
+  <h2 class="section-title">➕ เพิ่มผลิตภัณฑ์ใหม่</h2>
+
+  <form id="add-product-form" class="add-form" enctype="multipart/form-data"
+
+    <div class="form-group">
+      <label for="product-name">ชื่อผลิตภัณฑ์ *</label>
+      <input
+        type="text"
+        id="product-name"
+        name="name"
+        required
+        placeholder="เช่น น้ำพริกเผา">
+    </div>
+
+    <div class="form-group">
+      <label for="product-producer">ผู้ผลิต/กลุ่ม *</label>
+      <input
+        type="text"
+        id="product-producer"
+        name="producer"
+        required
+        placeholder="เช่น กลุ่มแม่บ้านบ้านโคก">
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="product-price">ราคา (บาท) *</label>
+        <input
+          type="number"
+          id="product-price"
+          name="price"
+          required
+          min="1"
+          placeholder="60">
+      </div>
+
+      <div class="form-group">
+        <label for="product-category">หมวดหมู่ *</label>
+        <select id="product-category" name="category" required>
+          <option value="">-- เลือกหมวดหมู่ --</option>
+          <option value="อาหาร/เครื่องดื่ม">🍯 อาหาร/เครื่องดื่ม</option>
+          <option value="ผ้า/เครื่องแต่งกาย">👗 ผ้า/เครื่องแต่งกาย</option>
+          <option value="เครื่องประดับ/หัตถกรรม">💍 เครื่องประดับ/หัตถกรรม</option>
+          <option value="สมุนไพร/สุขภาพ">🌿 สมุนไพร/สุขภาพ</option>
+          <option value="ของใช้/ของตกแต่ง">🏺 ของใช้/ของตกแต่ง</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="product-contact">เบอร์ติดต่อ (ถ้ามี)</label>
+      <input
+        type="tel"
+        id="product-contact"
+        name="contact"
+        placeholder="081-234-5678">
+    </div>
+   
+<div class="form-group">
+  <label for="product-image">รูปผลิตภัณฑ์</label>
+  <input
+    type="file"
+    id="product-image"
+    name="image"
+    accept=".jpg,.jpeg,.png,.webp">
+</div>
+    <button type="submit" class="submit-btn">
+      ➕ เพิ่มผลิตภัณฑ์
+    </button>
+  </form>
+</section>
+   
+    <section class="cards-section">
+     <h2>สินค้าขายดี</h2>
+     <div class="card-container" id="products-container">
+        <!-- JavaScript จะใส่การ์ดตรงนี้ -->
+     </div>
+
+</section>
+
+   
+    <footer class="footer">
+    <div>
+        <h3>เกี่ยวกับเรา</h3>
+        <p>จำหน่ายผลไม้คุณภาพจากจันทบุรี</p>
+    </div>
+
+    <div>
+        <h3>ติดต่อ</h3>
+        <p>โทร 099-999-9999</p>
+    </div>
+
+    <div>
+        <h3>ที่อยู่</h3>
+        <p>อำเภอเมือง จันทบุรี</p>
+    </div>
+</footer>
+
+<!-- Edit Modal -->
+<div id="edit-modal" class="modal-overlay hidden">
+  <div class="modal">
+    <div class="modal-header">
+      <h2>✏️ แก้ไขผลิตภัณฑ์</h2>
+      <button class="modal-close" id="modal-close">✕</button>
+    </div>
+
+    <form id="edit-form" class="edit-form">
+      <input type="hidden" id="edit-id">
+
+      <div class="form-group">
+        <label>ชื่อผลิตภัณฑ์ *</label>
+        <input type="text" id="edit-name" required>
+      </div>
+
+      <div class="form-group">
+        <label>ผู้ผลิต/กลุ่ม *</label>
+        <input type="text" id="edit-producer" required>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>ราคา *</label>
+          <input type="number" id="edit-price" required min="1">
+        </div>
+
+        <div class="form-group">
+          <label>หมวดหมู่ *</label>
+          <select id="edit-category" required>
+            <option value="อาหาร/เครื่องดื่ม">🍯 อาหาร/เครื่องดื่ม</option>
+            <option value="ผ้า/เครื่องแต่งกาย">👗 ผ้า/เครื่องแต่งกาย</option>
+            <option value="เครื่องประดับ/หัตถกรรม">💍 เครื่องประดับ/หัตถกรรม</option>
+            <option value="สมุนไพร/สุขภาพ">🌿 สมุนไพร/สุขภาพ</option>
+            <option value="ของใช้/ของตกแต่ง">🏺 ของใช้/ของตกแต่ง</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>เบอร์ติดต่อ</label>
+        <input type="tel" id="edit-contact">
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="cancel-btn" id="cancel-btn">ยกเลิก</button>
+        <button type="submit" class="submit-btn">💾 บันทึก</button>
+      </div>
+    </form>
+  </div>
+</div>
+<script src="script.js"></script>
+
+</body>
+</html>
